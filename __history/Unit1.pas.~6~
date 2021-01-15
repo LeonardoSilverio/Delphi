@@ -1,0 +1,106 @@
+unit Unit1;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+
+type
+  TForm1 = class(TForm)
+    CONVERTER: TButton;
+    REAL: TEdit;
+    Label1: TLabel;
+    Label2: TLabel;
+    DOLLAR: TEdit;
+    Label3: TLabel;
+    VALORDOLLAR: TEdit;
+    COMPRA: TButton;
+    Label4: TLabel;
+    NOME: TEdit;
+    procedure CONVERTERClick(Sender: TObject);
+    procedure COMPRAClick(Sender: TObject);
+
+
+
+
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+  varReal : real;
+
+
+  // int , real , double , currency , string
+
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.COMPRAClick(Sender: TObject);
+begin
+  if (NOME.Text='') then
+    begin
+      SHOWMESSAGE('INSIRA SEU NOME!');
+    end
+  else
+    begin
+       SHOWMESSAGE(NOME.TEXT+' VOCE COMPROU: '+DOLLAR.Text+''+#13+'VALOR COBRADO: '+REAL.TEXT);
+    end;
+end;
+
+procedure TForm1.CONVERTERClick(Sender: TObject);
+begin
+  IF (DOLLAR.Text = '') AND (VALORDOLLAR.Text = '') THEN
+    BEGIN
+      SHOWMESSAGE('CAMPOS "Dollar" E "Valor Dollar Atual" SEM DADOS');
+    END
+  ELSE
+    if (DOLLAR.Text = '') then
+      BEGIN
+        SHOWMESSAGE('CAMPO "Dollar" SEM DADOS');
+      END
+    ELSE
+        if (VALORDOLLAR.Text = '') then
+          BEGIN
+            SHOWMESSAGE('CAMPO "Valor Dollar Atual" SEM DADOS');
+          END
+        else
+          BEGIN
+            COMPRA.Enabled := TRUE;
+            varReal := strtofloat(DOLLAR.Text) * strtofloat(VALORDOLLAR.Text);
+            REAL.Text :='R$ '+floattostr(varReal);
+            DOLLAR.Text := '$ '+DOLLAR.Text;
+            VALORDOLLAR.Text := '$ '+VALORDOLLAR.Text
+            // inttostr , floattostr , strtofloat
+
+          END;
+
+end;
+
+procedure NOMEChange(Sender: TObject);
+begin
+
+end;
+
+procedure DOLLARChange(Sender: TObject);
+begin
+
+end;
+
+procedure REALChange(Sender: TObject);
+begin
+
+end;
+
+procedure VALORDOLLARChange(Sender: TObject);
+begin
+
+end;
+
+
