@@ -79,7 +79,7 @@ begin
 
     if (DOLLAR.Text = '') then
       BEGIN
-        SHOWMESSAGE('CAMPO "Quantidade em Dólar" SEM DADOS');
+        SHOWMESSAGE('CAMPO "Quantidade em Dollar" SEM DADOS');
       END
     else
       BEGIN
