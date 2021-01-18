@@ -56,21 +56,15 @@ begin
   if (NOME.Text='') then
     begin
       SHOWMESSAGE('INSIRA SEU NOME!');
-    end;
-
-  if (DOLLAR.Text='') then
-    BEGIN
-    SHOWMESSAGE('INSIRA A QUANTIDADE DE DOLARES!');
-    END
+    end
   else
     begin
-      SHOWMESSAGE(UpperCase(NOME.TEXT)+' VOCÊ COMPROU: '+DOLLAR.Text+''+#13+'VALOR COBRADO: '+REAL.TEXT);
-      REAL.Text := '';
-      DOLLAR.Text := '';
-      NOME.Text := '';
-      COMPRA.Enabled := FALSE;
-      CONVERTER.Enabled := TRUE;
-      //INPUTBOX('NOME','SEU NOME:?','');
+       SHOWMESSAGE(UpperCase(NOME.TEXT)+' VOCÊ COMPROU: '+DOLLAR.Text+''+#13+'VALOR COBRADO: '+REAL.TEXT);
+       REAL.Text := '';
+       DOLLAR.Text := '';
+       NOME.Text := '';
+       COMPRA.Enabled := FALSE;
+
     end;
 
 end;
